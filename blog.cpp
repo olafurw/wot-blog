@@ -87,7 +87,7 @@ int main(int argc, char** argv)
             return 0;
         }
 
-        std::string database_info = wot::utils::file_to_string("database.info");
+        std::string database_info = wot::utils::file_to_string("/home/cznp/database.info");
         std::vector<std::string> database_lines = wot::utils::split_string(database_info, '\n');
 
         std::string connection_str = "host=" + database_lines.at(0) + " db=" + database_lines.at(1) + " user=" + database_lines.at(2);
