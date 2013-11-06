@@ -11,6 +11,8 @@
         <div class="container">
         <h2><a href="/">CyborgZombieNinjaPirate</a></h2>
         <hr />
+        <p>The personal site of <a href="/about">Ólafur Waage.</a> Icelandic Geek. Lover of code, mostly dabble in C++.<br />
+           Everything here is open source. Runs on <a href="https://github.com/olafurw/wot">wot-server</a> with <a href="https://github.com/olafurw/wot-blog">wot-blog</a> as a backend.</p>
         {body}
         <p>So checkout the code on <a href="https://github.com/olafurw/wot">github</a> and I'll see you later</p>
         <hr />
