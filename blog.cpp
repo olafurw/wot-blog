@@ -5,6 +5,7 @@
 #include "soci/mysql/soci-mysql.h"
 
 #include "../utils.hpp"
+#include "template.hpp"
 
 struct blog_entry
 {
@@ -97,8 +98,19 @@ int main(int argc, char** argv)
         blog_entry be;
         *sql << "SELECT id, title, body, created, up, down FROM blog WHERE id = :id", soci::use(blog_id), soci::into(be);
 
-        std::cout << "<h3>" << be.title << "</h3><br />";
-        std::cout << be.body;
+        std::map<std::string, std::string> entry_values;
+        std::map<std::string, std::string> body_values;
+
+        entry_values["title"] = be.title;
+        entry_values["date"] = std::to_string(be.created);
+        entry_values["body"] = be.body;
+
+        std::string entry = wot::templates::parse("/home/cznp/entry.tpl", entry_values);
+
+        body_values["title"] = be.title;
+        body_values["body"] = entry;
+
+        std::cout << wot::templates::parse("/home/cznp/body.tpl", body_values);
     }
     catch(...)
     {
